@@ -69,10 +69,8 @@ export const calc = (e: any, utils?: any): any => {
 
   } else if (thatKeyNotIsOperation(e)) {
     // Se não for operação, e for numero, ele entra nas tratativas de numero
-
     if (valueInCalculator === '0' && e.target.innerText !== '0') {
       // Se a calculadora conter apenas o valor 0, e tentar inserir um valor diferente de outro 0 ele substitui e fica aberto para colocar operações
-
       if (e.target.innerText === '.') {
         e.target.parentElement[0].value = `0${e.target.innerText}`
         utils.setIsOperating(false)
@@ -85,32 +83,25 @@ export const calc = (e: any, utils?: any): any => {
     }
     else if (valueInCalculator !== '0') {
       // Se a calculadora não conter apenas o valor 0, ele adiciona e fica aberto para colocar operações
-
-
       // TODO: PRECISO TRATAR O ERRO DOS PONTOS, ELE DEIXA COLOCAR MAIS DE UM PONTO PARA CASA DECIMAIS
       if (utils.isOperating && e.target.innerText === '.') {
         e.target.parentElement[0].value += `0${e.target.innerText}`
         utils.setIsOperating(false)
         utils.setNewOperation(false)
-
       } else if (utils.newOperation) {
         if (e.target.innerText === '.') {
           e.target.parentElement[0].value = `0${e.target.innerText}`
           utils.setIsOperating(false)
           utils.setNewOperation(false)
         } else {
-          console.log(utils.isOperating, utils.newOperation)
-
           if (utils.isOperating && utils.newOperation) {
             e.target.parentElement[0].value += e.target.innerText
           } else {
             e.target.parentElement[0].value = e.target.innerText
           }
-
           utils.setIsOperating(false)
           utils.setNewOperation(false)
         }
-
       } else {
         e.target.parentElement[0].value += e.target.innerText
         utils.setIsOperating(false)
