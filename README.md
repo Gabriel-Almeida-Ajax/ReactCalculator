@@ -4,6 +4,8 @@
   <p align="center"><img  align="center" src="https://user-images.githubusercontent.com/58678638/115974085-9d3d8500-a530-11eb-81ce-3d92a157cba7.png" /></p>
   <p align="center"><h1 align="center">Using</h1></p>
   <p align="center"><img  align="center" src="https://user-images.githubusercontent.com/58678638/115974587-2f935800-a534-11eb-96fc-da98c4e2c9b5.gif" /></p>
+  <p align="center"><h1 align="center">Historic in log, still needs to be implemented on the page</h1></p>
+  <p align="center"><img  align="center" src="https://user-images.githubusercontent.com/58678638/115974739-2ce53280-a535-11eb-906e-92cf92515cae.jpeg" /></p>
 </div>
 
 # Getting Started with Create React App
