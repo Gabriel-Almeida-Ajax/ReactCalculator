@@ -51,20 +51,20 @@ export const calc = (e: any, utils?: any): any => {
   const valueInCalculator = e.target.parentElement[0].value
 
   interface IPropsCalc {
-    operation: boolean
-    newOperation: boolean
     value: string
+    operation?: boolean
+    newOperation?: boolean
   }
 
   const setValue = (props: IPropsCalc): void => {
     e.target.parentElement[0].value = props.value
-    utils.setIsOperating(props.operation)
+    utils.setIsOperating(props.operation || false)
     utils.setNewOperation(props.newOperation)
   }
   const addValue = (props: IPropsCalc): void => {
     e.target.parentElement[0].value += props.value
     utils.setIsOperating(props.operation)
-    utils.setNewOperation(props.newOperation)
+    utils.setNewOperation(props.newOperation || false)
   }
 
 
@@ -90,10 +90,10 @@ export const calc = (e: any, utils?: any): any => {
     if (valueInCalculator === '0' && e.target.innerText !== '0') {
       // Se a calculadora conter apenas o valor 0, e tentar inserir um valor diferente de outro 0 ele substitui e fica aberto para colocar operações
       if (e.target.innerText === '.') {
-        setValue({ value: `0${e.target.innerText}`, operation: false, newOperation: false });
-        
+        setValue({ value: `0${e.target.innerText}` });
+
       } else {
-        setValue({ value: e.target.innerText, operation: false, newOperation: false });
+        setValue({ value: e.target.innerText });
 
       }
     }
@@ -101,27 +101,24 @@ export const calc = (e: any, utils?: any): any => {
       // Se a calculadora não conter apenas o valor 0, ele adiciona e fica aberto para colocar operações
       // TODO: PRECISO TRATAR O ERRO DOS PONTOS, ELE DEIXA COLOCAR MAIS DE UM PONTO PARA CASA DECIMAIS
       if (utils.isOperating && e.target.innerText === '.') {
-        e.target.parentElement[0].value += `0${e.target.innerText}`
-        utils.setIsOperating(false)
-        utils.setNewOperation(false)
+        addValue({ value: `0${e.target.innerText}` });
+
       } else if (utils.newOperation) {
         if (e.target.innerText === '.') {
-          e.target.parentElement[0].value = `0${e.target.innerText}`
-          utils.setIsOperating(false)
-          utils.setNewOperation(false)
+          setValue({ value: `0${e.target.innerText}` });
+
         } else {
           if (utils.isOperating && utils.newOperation) {
-            e.target.parentElement[0].value += e.target.innerText
+            addValue({ value: e.target.innerText });
+
           } else {
-            e.target.parentElement[0].value = e.target.innerText
+            setValue({ value: e.target.innerText });
+
           }
-          utils.setIsOperating(false)
-          utils.setNewOperation(false)
         }
       } else {
-        e.target.parentElement[0].value += e.target.innerText
-        utils.setIsOperating(false)
-        utils.setNewOperation(false)
+        addValue({ value: e.target.innerText });
+
       }
     }
   }
