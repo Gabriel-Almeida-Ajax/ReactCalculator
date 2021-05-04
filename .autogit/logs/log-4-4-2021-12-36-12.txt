@@ -1,0 +1,20 @@
+-------------------- Auto-Git Log --------------------
+		Tue May 04 2021 12:36:12 GMT-0300 (Horário Padrão de Brasília)
+------------------------------------------------------
+
+Modified files:
+* src/App.tsx
+* src/index.tsx
+
+
+Created files:
+* yarn.lock
+
+
+Deleted files:
+* src/logo.svg
+* src/reportWebVitals.ts
+* src/setupTests.ts
+
+
+Renamed files:
