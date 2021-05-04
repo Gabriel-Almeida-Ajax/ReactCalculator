@@ -1,0 +1,15 @@
+-------------------- Auto-Git Log --------------------
+		Tue May 04 2021 18:39:56 GMT-0300 (Horário Padrão de Brasília)
+------------------------------------------------------
+
+Modified files:
+
+
+Created files:
+* .autogit/logs/log-4-4-2021-18-9-34.txt
+
+
+Deleted files:
+
+
+Renamed files:
