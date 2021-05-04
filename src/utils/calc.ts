@@ -28,6 +28,7 @@ export const calc = (e: any, utils?: any): any => {
 
       let value = eval(e.target.parentElement[0].value) || false
       if (value) {
+        // value = parseFloat(value)
         let hys = utils.history
         hys.push({ operation: e.target.parentElement[0].value, result: value, time: new Date().toLocaleString('PT-br') })
         utils.setHistory(hys)

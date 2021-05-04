@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Tue May 04 2021 13:06:29 GMT-0300 (Horário Padrão de Brasília)
+------------------------------------------------------
+
+Modified files:
+* src/App.css
+* src/App.tsx
+
+
+Created files:
+* .autogit/logs/log-4-4-2021-12-36-12.txt
+* src/components/botoes.tsx
+* src/components/calculadora.tsx
+
+
+Deleted files:
+
+
+Renamed files:
