@@ -28,7 +28,6 @@ export const calc = (e: any, utils?: any): any => {
 
       let value = eval(e.target.parentElement[0].value) || false
       if (value) {
-        // value = parseFloat(value)
         let hys = utils.history
         hys.push({ operation: e.target.parentElement[0].value, result: value, time: new Date().toLocaleString('PT-br') })
         utils.setHistory(hys)
@@ -50,6 +49,24 @@ export const calc = (e: any, utils?: any): any => {
   const thatKeyNotIsOperation = (e: any) => true
 
   const valueInCalculator = e.target.parentElement[0].value
+
+  interface IPropsCalc {
+    operation: boolean
+    newOperation: boolean
+    value: string
+  }
+
+  const setValue = (props: IPropsCalc): void => {
+    e.target.parentElement[0].value = props.value
+    utils.setIsOperating(props.operation)
+    utils.setNewOperation(props.newOperation)
+  }
+  const addValue = (props: IPropsCalc): void => {
+    e.target.parentElement[0].value += props.value
+    utils.setIsOperating(props.operation)
+    utils.setNewOperation(props.newOperation)
+  }
+
 
   if (thatkeyIsOperation(e)) {
     // Se for operação, ele entra nas tratativas de operação
@@ -73,13 +90,11 @@ export const calc = (e: any, utils?: any): any => {
     if (valueInCalculator === '0' && e.target.innerText !== '0') {
       // Se a calculadora conter apenas o valor 0, e tentar inserir um valor diferente de outro 0 ele substitui e fica aberto para colocar operações
       if (e.target.innerText === '.') {
-        e.target.parentElement[0].value = `0${e.target.innerText}`
-        utils.setIsOperating(false)
-        utils.setNewOperation(false)
+        setValue({ value: `0${e.target.innerText}`, operation: false, newOperation: false });
+        
       } else {
-        e.target.parentElement[0].value = e.target.innerText
-        utils.setNewOperation(false)
-        utils.setIsOperating(false)
+        setValue({ value: e.target.innerText, operation: false, newOperation: false });
+
       }
     }
     else if (valueInCalculator !== '0') {
