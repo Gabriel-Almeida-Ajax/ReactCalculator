@@ -16,7 +16,7 @@ export function Calculator() {
     const [history, setHistory] = useState<IHistory[]>([])
     const [newOperation, setNewOperation] = useState<boolean>(true)
     const [notUsedDot, setNotUsedDot] = useState<boolean>(true)
-    const fn = (e: any) => calc(e, {isOperating, setIsOperating, history, setHistory, newOperation, setNewOperation, notUsedDot, setNotUsedDot})
+    const fn = (e: any) => calc(e, { isOperating, setIsOperating, history, setHistory, newOperation, setNewOperation, notUsedDot, setNotUsedDot })
 
     return (
         <div className="box">
