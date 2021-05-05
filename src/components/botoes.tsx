@@ -24,7 +24,7 @@ export const Buttons: React.FC<any> = ({ fn }) => {
   
     const Button: React.FC<any> = (btn) => {
       let name = Object.keys(btn)
-      return (<span className={btn[name[0]]} onClick={fn}>{name}</span>)
+      return (<span key={name[0]} className={btn[name[0]]} onClick={fn}>{name}</span>)
     }
   
     return (
