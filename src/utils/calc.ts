@@ -52,7 +52,7 @@ export const calc = (e: any, utils: IUtils): void => {
       utils.setNotUsedDot(true)
     },
     '='(e: any) {
-
+      // eslint-disable-next-line no-eval
       let value = eval(e.target.parentElement[0].value) || false
       if (value) {
         let hys = utils.history
